@@ -98,7 +98,7 @@ app.post("/playlists", (req, res) => {
 
 app.put("/playlists/:id", (req, res) => {
   const songIndex = songs.findIndex((item) => item.id == req.params.id);
-  if (songIndex > 0) {
+  if (songIndex >= 0) {
     songs[songIndex] = { id: songs[songIndex].id, ...req.body };
     res.json({
       status: 200,
@@ -115,7 +115,7 @@ app.put("/playlists/:id", (req, res) => {
 
 app.delete("/playlists/:id", (req, res) => {
   const songIndex = songs.findIndex((item) => item.id == req.params.id);
-  if (songIndex > 0) {
+  if (songIndex >= 0) {
     songs.splice(songIndex, 1);
     res.json({
       status: 200,
