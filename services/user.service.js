@@ -41,7 +41,7 @@ const loginUserService = async (username, password) => {
     if (!cekPassword) throw { message: "password doesn't match" };
 
     const token = jwt.sign(
-      { id: cekUser._id },
+      { id: cekUser._id, username: cekUser.username },
       process.env.SECRET_KEY,
       { expiresIn: "1800s" } // 30 minute
     );

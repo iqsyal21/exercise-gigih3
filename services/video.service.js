@@ -98,37 +98,6 @@ const addCommentService = async (id, username, comment) => {
   }
 };
 
-const updateProductsVideoService = async (
-  id,
-  link,
-  img_url,
-  title,
-  category,
-  price
-) => {
-  const video = await Video.findById(id);
-  if (video == null) throw { message: "video not found" };
-
-  try {
-    const updateProducts = {
-      product_list: [
-        ...video.product_list,
-        {
-          link: link,
-          img_url: img_url,
-          title: title,
-          category: category,
-          price: price,
-        },
-      ],
-    };
-
-    return await Video.findByIdAndUpdate(id, updateProducts, { new: true });
-  } catch (error) {
-    return error.message;
-  }
-};
-
 module.exports = {
   getVideosService,
   getVideoByIdService,
@@ -136,5 +105,4 @@ module.exports = {
   updateVideoService,
   deleteVideoService,
   addCommentService,
-  updateProductsVideoService,
 };

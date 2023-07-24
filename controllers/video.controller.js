@@ -5,7 +5,6 @@ const {
   updateVideoService,
   deleteVideoService,
   addCommentService,
-  updateProductsVideoService,
 } = require("../services/video.service");
 
 const getVideosController = async (req, res) => {
@@ -108,44 +107,16 @@ const addCommentController = async (req, res) => {
   try {
     if (req.params.id.length < 24) throw { message: "id is doesn't match" };
 
-    const { username, comment } = req.body;
     const updateVideo = await addCommentService(
       req.params.id,
-      username,
-      comment
+      req.auth.username,
+      req.body.comment
     );
 
     res.status(200).json({
       message: "success add comment to video",
       data: {
         updateVideo,
-      },
-    });
-  } catch (error) {
-    res.status(403).json({
-      message: error.message,
-    });
-  }
-};
-
-const updateProductsVideoController = async (req, res) => {
-  try {
-    if (req.params.id.length < 24) throw { message: "id is doesn't match" };
-
-    const { link, img_url, title, category, price } = req.body;
-    const updateProducsVideo = await updateProductsVideoService(
-      req.params.id,
-      link,
-      img_url,
-      title,
-      category,
-      price
-    );
-
-    res.status(200).json({
-      message: "success update products video",
-      data: {
-        updateProducsVideo,
       },
     });
   } catch (error) {
@@ -162,5 +133,4 @@ module.exports = {
   updateVideoController,
   deleteVideoController,
   addCommentController,
-  updateProductsVideoController,
 };
