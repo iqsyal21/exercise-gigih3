@@ -10,7 +10,7 @@ const getProductController = async (req, res) => {
     const products = await getProductsService();
 
     res.status(200).json({
-      msg: "success get all products",
+      message: "success get all products",
       data: {
         products,
       },

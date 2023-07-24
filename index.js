@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
   res.json({
     status: 200,
-    msg: "success",
+    message: "success",
     data: "Welcome to Tokopedia Clone API",
   });
 });

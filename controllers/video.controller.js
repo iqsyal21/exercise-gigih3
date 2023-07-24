@@ -12,7 +12,7 @@ const getVideosController = async (req, res) => {
     const videos = await getVideosService();
 
     res.status(200).json({
-      msg: "success get all videos",
+      message: "success get all videos",
       data: {
         videos,
       },
@@ -31,7 +31,7 @@ const getVideoByIdController = async (req, res) => {
     const video = await getVideoByIdService(req.params.id);
 
     res.status(200).json({
-      msg: "success get detail video",
+      message: "success get detail video",
       data: {
         video,
       },

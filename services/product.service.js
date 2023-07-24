@@ -31,7 +31,7 @@ const createProductService = async (link, img_url, title, category, price) => {
   }
 };
 
-const updateProductService = async (id, link, title, category, price) => {
+const updateProductService = async (id, link, img_url, title, category, price) => {
   const product = await Product.findById(id);
   if (product == null) throw { message: "product not found" };
 
