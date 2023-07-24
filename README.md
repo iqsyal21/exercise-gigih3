@@ -1,9 +1,11 @@
 **how to run**
+----
 1. npm install
 2. npm start
 
 note : if you want to add sample data, can use path get /sample
 
+----
 #User
 * User object
 ```
