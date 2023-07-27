@@ -2,8 +2,14 @@
 ----
 1. npm install
 2. npm start
+3. will show localhost address and status connected database
+Server running on port 3000
+Database connected
+4. access http://localhost:3000/
 
-note : if you want to add sample data, can use path get /sample
+note :
+- make sure your mongodb is running
+- if you want to add sample data, can use path get /sample
 
 ----
 #User
